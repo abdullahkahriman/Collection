@@ -1,0 +1,43 @@
+// reset
+@import "reset";
+
+.aspect-ratio-wrapper {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    gap: 1rem;
+    margin: 30px;
+    padding-bottom: 30px;
+    border-bottom: 3px solid #CCC;
+
+    @media only screen and (max-width: 479px) {
+        grid-template-columns: repeat(2, auto);
+    }
+
+    &--container {
+        position: relative;
+        height: 0;
+        overflow: hidden;
+        &.\--4-3 {
+            padding-top: calc(3 / 4 * 100%);
+        }
+        &.\--9-16 {
+            padding-top: calc(9 / 16 * 100%);
+        }
+        .aspect-ratio {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover;
+            object-position: center center;
+            border-radius: 5px;
+            background: #ccc;
+            transition: 500ms all;
+        }
+    }
+}
+
+img {
+    height: 100%;
+}
